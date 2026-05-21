@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #FFFFFF;
+  color: #2C2C2C;
+  font-family: 'Inter', sans-serif;
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 border border-soft-grey transition-shadow hover:shadow-lg;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-charcoal text-white rounded-lg font-medium hover:bg-dark-grey transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 bg-soft-grey text-charcoal rounded-lg font-medium hover:bg-gray-300 transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 border border-soft-grey rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal;
+  }
+
+  .tab-active {
+    @apply border-b-2 border-charcoal text-charcoal font-semibold;
+  }
+
+  .tab-inactive {
+    @apply border-b-2 border-transparent text-dark-grey hover:text-charcoal;
+  }
+}

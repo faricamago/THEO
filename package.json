@@ -1,0 +1,10 @@
+{
+  "name": "theo-pet-manager",
+  "version": "1.0.0",
+  "description": "Shared pet expense and task manager",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "api"
+  ]
+}
