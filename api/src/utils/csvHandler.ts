@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 interface Expense {
   id: string;
   date: string;
-  person: 'You' | 'Boyfriend';
+  person: 'Farica' | 'Yelysei';
   description: string;
   amount: number;
   category: string;
@@ -17,7 +17,7 @@ interface Task {
   id: string;
   date: string;
   description: string;
-  assignedTo: 'You' | 'Boyfriend' | 'Both';
+  assignedTo: 'Farica' | 'Yelysei' | 'Both';
   completed: boolean;
   completedDate?: string;
 }

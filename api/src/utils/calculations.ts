@@ -1,7 +1,7 @@
 interface Expense {
   id: string;
   date: string;
-  person: 'You' | 'Boyfriend';
+  person: 'Farica' | 'Yelysei';
   description: string;
   amount: number;
   category: string;
@@ -21,21 +21,21 @@ export const calculateMonthlySettlement = (expenses: Expense[], month: number, y
     return date.getMonth() + 1 === month && date.getFullYear() === year;
   });
 
-  const youTotal = filtered
-    .filter(e => e.person === 'You')
+  const faricaTotal = filtered
+    .filter(e => e.person === 'Farica')
     .reduce((sum, e) => sum + e.amount, 0);
 
-  const boyfriendTotal = filtered
-    .filter(e => e.person === 'Boyfriend')
+  const yelyseiTotal = filtered
+    .filter(e => e.person === 'Yelysei')
     .reduce((sum, e) => sum + e.amount, 0);
 
-  const difference = Math.abs(youTotal - boyfriendTotal);
-  const whoOwes = youTotal > boyfriendTotal ? 'Boyfriend' : youTotal < boyfriendTotal ? 'You' : 'Even';
+  const difference = Math.abs(faricaTotal - yelyseiTotal);
+  const whoOwes = faricaTotal > yelyseiTotal ? 'Yelysei' : faricaTotal < yelyseiTotal ? 'Farica' : 'Even';
   const settleAmount = difference / 2;
 
   return {
-    youTotal,
-    boyfriendTotal,
+    youTotal: faricaTotal,
+    boyfriendTotal: yelyseiTotal,
     difference,
     whoOwes,
     amount: settleAmount,

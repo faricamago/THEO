@@ -6,7 +6,7 @@ interface ExpenseFormProps {
 }
 
 export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
-  const [person, setPerson] = useState<'Fairca' | 'Yelysei'>('Fairca')
+  const [person, setPerson] = useState<'Farica' | 'Yelysei'>('Farica')
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('Food')
@@ -30,7 +30,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
         amount: parseFloat(amount),
         category,
       })
-      setPerson('Fairca')
+      setPerson('Farica')
       setDescription('')
       setAmount('')
       setCategory('Food')
@@ -53,10 +53,10 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
           <label className="block text-sm font-medium mb-2">Who?</label>
           <select
             value={person}
-            onChange={(e) => setPerson(e.target.value as 'Fairca' | 'Yelysei')}
+            onChange={(e) => setPerson(e.target.value as 'Farica' | 'Yelysei')}
             className="input-field"
           >
-            <option>Fairca</option>
+            <option>Farica</option>
             <option>Yelysei</option>
           </select>
         </div>

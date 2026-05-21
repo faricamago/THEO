@@ -12,21 +12,21 @@ Theo is a beautiful, shared expense and task management app designed for couples
 
 1. Click the **"Expenses"** tab in the navigation
 2. Fill in the form:
-   - **Who?** - Select "You" or "Boyfriend"
+   - **Who?** - Select "Farica" or "Yelysei"
    - **Category** - Choose from: Food, Vet, Toys, Supplies, Other
    - **Description** - What was bought (e.g., "Dog food bag", "Vet checkup")
    - **Amount** - How much was spent (in dollars)
 3. Click **"Add Expense"** button
 
 **Example:**
-- You spend $45.99 on dog food → Recorded as "You" expense
-- Boyfriend spends $150 on vet visit → Recorded as "Boyfriend" expense
+- Farica spend $45.99 on dog food → Recorded as "Farica" expense
+- Yelysei spends $150 on vet visit → Recorded as "Yelysei" expense
 
 ### Viewing Expenses
 
 **Summary Tab** - See the monthly overview:
 - Your total spending
-- Boyfriend's total spending
+- Yelysei's total spending
 - **Settlement calculation** - Who owes whom how much
 
 **Your Expenses Tab** - See only your expenses:
@@ -34,7 +34,7 @@ Theo is a beautiful, shared expense and task management app designed for couples
 - Sorted by date (newest first)
 - Delete button to remove mistakes
 
-**Boyfriend's Expenses Tab** - See his expenses:
+**Yelysei's Expenses Tab** - See his expenses:
 - Same layout as yours
 - Shows his spending patterns
 - Can be deleted by either user
@@ -58,17 +58,17 @@ Theo is a beautiful, shared expense and task management app designed for couples
 At the end of each month, Theo automatically calculates:
 
 **How it works:**
-1. Sum all "You" expenses
-2. Sum all "Boyfriend" expenses
+1. Sum all "Farica" expenses
+2. Sum all "Yelysei" expenses
 3. Calculate the difference
 4. Divide by 2 to determine fair split
 5. Determine who owes whom
 
 **Example:**
-- You spent: $500
-- Boyfriend spent: $300
+- Farica spent: $500
+- Yelysei spent: $300
 - Difference: $200
-- Settlement: **Boyfriend owes You $100**
+- Settlement: **Yelysei owes Farica $100**
   - (They spent $100 less, so they owe half the difference)
 
 **Display:**
@@ -86,7 +86,7 @@ The settlement appears in the Summary tab with:
 1. Click the **"Tasks"** tab
 2. Fill in the form:
    - **Task** - What needs to be done (e.g., "Feed Theo at 6pm")
-   - **Assign to** - Who should do it (You, Boyfriend, or Both)
+   - **Assign to** - Who should do it (Farica, Yelysei, or Both)
 3. Click **"Add Task"**
 
 **Examples of tasks:**
@@ -141,12 +141,12 @@ The generated PDF includes:
 **Your Expenses:**
 - Itemized list of all your expenses
 - Shows: Description, Amount, Category
-- **Total for You**
+- **Total for Farica**
 
-**Boyfriend's Expenses:**
+**Yelysei's Expenses:**
 - Itemized list of his expenses
 - Shows: Description, Amount, Category
-- **Total for Boyfriend**
+- **Total for Yelysei**
 
 **Settlement:**
 - Who owes whom

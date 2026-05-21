@@ -93,7 +93,7 @@ export default function ReportsPage() {
         <ul className="space-y-2 text-dark-grey">
           <li>✓ Monthly expense breakdown by person</li>
           <li>✓ Category-wise expense details</li>
-          <li>✓ Total amounts for You and Boyfriend</li>
+          <li>✓ Total amounts for Farica and Yelysei</li>
           <li>✓ Settlement calculation and who owes whom</li>
           <li>✓ Professional formatting for sharing</li>
         </ul>

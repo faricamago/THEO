@@ -35,20 +35,20 @@ router.get('/generate', (req: Request, res: Response) => {
 
     // Your expenses
     doc.fontSize(12).font('Helvetica-Bold').text('Your Expenses:', { underline: true });
-    const yourExpenses = monthlyExpenses.filter(e => e.person === 'You');
+    const yourExpenses = monthlyExpenses.filter(e => e.person === 'Farica');
     yourExpenses.forEach(e => {
       doc.fontSize(10).text(`  • ${e.description}: $${e.amount.toFixed(2)} (${e.category})`);
     });
     doc.fontSize(11).font('Helvetica-Bold').text(`Your Total: $${settlement.youTotal.toFixed(2)}`);
     doc.moveDown(0.5);
 
-    // Boyfriend's expenses
-    doc.fontSize(12).font('Helvetica-Bold').text("Boyfriend's Expenses:", { underline: true });
-    const bfExpenses = monthlyExpenses.filter(e => e.person === 'Boyfriend');
+    // Yelysei's expenses
+    doc.fontSize(12).font('Helvetica-Bold').text("Yelysei's Expenses:", { underline: true });
+    const bfExpenses = monthlyExpenses.filter(e => e.person === 'Yelysei');
     bfExpenses.forEach(e => {
       doc.fontSize(10).text(`  • ${e.description}: $${e.amount.toFixed(2)} (${e.category})`);
     });
-    doc.fontSize(11).font('Helvetica-Bold').text(`Boyfriend's Total: $${settlement.boyfriendTotal.toFixed(2)}`);
+    doc.fontSize(11).font('Helvetica-Bold').text(`Yelysei's Total: $${settlement.boyfriendTotal.toFixed(2)}`);
     doc.moveDown(1);
 
     // Settlement

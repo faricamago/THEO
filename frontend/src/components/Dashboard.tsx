@@ -8,8 +8,8 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ expenses, settlement, month, year }: DashboardProps) {
-  const faircaTotal = expenses
-    .filter(e => e.person === 'Fairca')
+  const faricaTotal = expenses
+    .filter(e => e.person === 'Farica')
     .reduce((sum, e) => sum + e.amount, 0)
 
   const yelyseiTotal = expenses
@@ -27,8 +27,8 @@ export default function Dashboard({ expenses, settlement, month, year }: Dashboa
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="p-6 bg-gradient-to-br from-pastel-pink to-white rounded-lg border-2 border-royal-pink">
-          <p className="text-sm font-semibold text-royal-pink mb-2">Fairca Total</p>
-          <p className="text-4xl font-bold text-royal-pink">${faircaTotal.toFixed(2)}</p>
+          <p className="text-sm font-semibold text-royal-pink mb-2">Farica Total</p>
+          <p className="text-4xl font-bold text-royal-pink">${faricaTotal.toFixed(2)}</p>
         </div>
 
         <div className="p-6 bg-gradient-to-br from-royal-black to-dark-grey rounded-lg border-2 border-gold-accent">

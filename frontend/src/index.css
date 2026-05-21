@@ -42,7 +42,7 @@ html, body {
     @apply border-b-2 border-transparent text-dark-grey hover:text-royal-pink transition-colors;
   }
 
-  .user-fairca {
+  .user-farica {
     @apply bg-gradient-to-br from-pastel-pink via-white to-pastel-pink;
   }
 
@@ -50,7 +50,7 @@ html, body {
     @apply bg-gradient-to-br from-royal-black via-dark-grey to-royal-black;
   }
 
-  .tab-fairca {
+  .tab-farica {
     @apply hover:bg-pastel-pink/20 cursor-pointer transition-all duration-300;
   }
 

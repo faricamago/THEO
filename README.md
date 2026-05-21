@@ -56,7 +56,7 @@ Open http://localhost:5173 in your browser
 - **Month/Year Selector**: View expenses for any month
 
 ### Tasks Tab
-- **Add Task**: Create a new task and assign to You, Boyfriend, or Both
+- **Add Task**: Create a new task and assign to Farica, Yelysei, or Both
 - **Mark Complete**: Check off completed tasks
 - **Delete**: Remove tasks as needed
 

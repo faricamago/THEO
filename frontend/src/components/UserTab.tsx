@@ -4,7 +4,7 @@ import axios from 'axios'
 interface Expense {
   id: string
   date: string
-  person: 'Fairca' | 'Yelysei'
+  person: 'Farica' | 'Yelysei'
   description: string
   amount: number
   category: string
@@ -12,7 +12,7 @@ interface Expense {
 
 interface UserTabProps {
   expenses: Expense[]
-  person: 'Fairca' | 'Yelysei'
+  person: 'Farica' | 'Yelysei'
   onDelete: () => void
 }
 
@@ -22,10 +22,10 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
   const userExpenses = expenses.filter(e => e.person === person)
   const total = userExpenses.reduce((sum, e) => sum + e.amount, 0)
 
-  const isFairca = person === 'Fairca'
-  const bgColor = isFairca ? 'bg-pastel-pink' : 'bg-royal-black'
-  const textColor = isFairca ? 'text-royal-pink' : 'text-gold-accent'
-  const borderColor = isFairca ? 'border-royal-pink' : 'border-dark-grey'
+  const isFarica = person === 'Farica'
+  const bgColor = isFarica ? 'bg-pastel-pink' : 'bg-royal-black'
+  const textColor = isFarica ? 'text-royal-pink' : 'text-gold-accent'
+  const borderColor = isFarica ? 'border-royal-pink' : 'border-dark-grey'
 
   const handleDelete = async (id: string) => {
     setDeleting(id)

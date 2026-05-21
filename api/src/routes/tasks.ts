@@ -5,7 +5,7 @@ const router = Router();
 
 interface TaskBody {
   description: string;
-  assignedTo: 'You' | 'Boyfriend' | 'Both';
+  assignedTo: 'Farica' | 'Yelysei' | 'Both';
 }
 
 router.get('/', (req: Request, res: Response) => {

@@ -7,7 +7,7 @@ interface TaskFormProps {
 
 export default function TaskForm({ onAdd }: TaskFormProps) {
   const [description, setDescription] = useState('')
-  const [assignedTo, setAssignedTo] = useState<'You' | 'Boyfriend' | 'Both'>('Both')
+  const [assignedTo, setAssignedTo] = useState<'Farica' | 'Yelysei' | 'Both'>('Both')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -57,11 +57,11 @@ export default function TaskForm({ onAdd }: TaskFormProps) {
         <label className="block text-sm font-medium mb-2">Assign to</label>
         <select
           value={assignedTo}
-          onChange={(e) => setAssignedTo(e.target.value as 'You' | 'Boyfriend' | 'Both')}
+          onChange={(e) => setAssignedTo(e.target.value as 'Farica' | 'Yelysei' | 'Both')}
           className="input-field"
         >
-          <option>You</option>
-          <option>Boyfriend</option>
+          <option>Farica</option>
+          <option>Yelysei</option>
           <option>Both</option>
         </select>
       </div>

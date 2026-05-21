@@ -5,7 +5,7 @@ import { calculateMonthlySettlement, filterExpensesByMonth } from '../utils/calc
 const router = Router();
 
 interface ExpenseBody {
-  person: 'You' | 'Boyfriend';
+  person: 'Farica' | 'Yelysei';
   description: string;
   amount: number;
   category: string;

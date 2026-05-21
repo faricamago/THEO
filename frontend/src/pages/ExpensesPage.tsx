@@ -8,7 +8,7 @@ import { Expense, Settlement } from '../types'
 export default function ExpensesPage() {
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [settlement, setSettlement] = useState<Settlement | null>(null)
-  const [activeTab, setActiveTab] = useState<'fairca' | 'yelysei' | 'summary'>('summary')
+  const [activeTab, setActiveTab] = useState<'farica' | 'yelysei' | 'summary'>('summary')
   const [month, setMonth] = useState(new Date().getMonth() + 1)
   const [year, setYear] = useState(new Date().getFullYear())
   const [loading, setLoading] = useState(true)
@@ -87,14 +87,14 @@ export default function ExpensesPage() {
               Summary
             </button>
             <button
-              onClick={() => setActiveTab('fairca')}
+              onClick={() => setActiveTab('farica')}
               className={`pb-3 font-semibold transition ${
-                activeTab === 'fairca'
+                activeTab === 'farica'
                   ? 'text-royal-pink border-b-2 border-royal-pink'
                   : 'text-dark-grey hover:text-royal-pink'
               }`}
             >
-              Fairca Expenses
+              Farica Expenses
             </button>
             <button
               onClick={() => setActiveTab('yelysei')}
@@ -111,8 +111,8 @@ export default function ExpensesPage() {
           {activeTab === 'summary' && (
             <Dashboard expenses={expenses} settlement={settlement} month={month} year={year} />
           )}
-          {activeTab === 'fairca' && (
-            <UserTab expenses={expenses} person="Fairca" onDelete={fetchExpenses} />
+          {activeTab === 'farica' && (
+            <UserTab expenses={expenses} person="Farica" onDelete={fetchExpenses} />
           )}
           {activeTab === 'yelysei' && (
             <UserTab expenses={expenses} person="Yelysei" onDelete={fetchExpenses} />

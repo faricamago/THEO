@@ -177,7 +177,7 @@ curl https://your-backend.railway.app/api/health
 # Add a test expense
 curl -X POST https://your-backend.railway.app/api/expenses \
   -H "Content-Type: application/json" \
-  -d '{"person":"You","description":"Test","amount":10,"category":"Other"}'
+  -d '{"person":"Farica","description":"Test","amount":10,"category":"Other"}'
 
 # Get expenses
 curl https://your-backend.railway.app/api/expenses
