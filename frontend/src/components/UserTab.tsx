@@ -4,7 +4,7 @@ import axios from 'axios'
 interface Expense {
   id: string
   date: string
-  person: 'You' | 'Boyfriend'
+  person: 'Fairca' | 'Yelysei'
   description: string
   amount: number
   category: string
@@ -12,7 +12,7 @@ interface Expense {
 
 interface UserTabProps {
   expenses: Expense[]
-  person: 'You' | 'Boyfriend'
+  person: 'Fairca' | 'Yelysei'
   onDelete: () => void
 }
 
@@ -21,6 +21,11 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
 
   const userExpenses = expenses.filter(e => e.person === person)
   const total = userExpenses.reduce((sum, e) => sum + e.amount, 0)
+
+  const isFairca = person === 'Fairca'
+  const bgColor = isFairca ? 'bg-pastel-pink' : 'bg-royal-black'
+  const textColor = isFairca ? 'text-royal-pink' : 'text-gold-accent'
+  const borderColor = isFairca ? 'border-royal-pink' : 'border-dark-grey'
 
   const handleDelete = async (id: string) => {
     setDeleting(id)
@@ -36,9 +41,9 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
 
   return (
     <div>
-      <div className="mb-6 p-4 bg-soft-grey rounded-lg">
-        <p className="text-sm text-dark-grey">Total Expenses</p>
-        <p className="text-3xl font-bold">${total.toFixed(2)}</p>
+      <div className={`mb-6 p-4 rounded-lg border-2 ${bgColor} ${borderColor}`}>
+        <p className="text-sm font-semibold opacity-70">{person} - Total Expenses</p>
+        <p className={`text-4xl font-bold ${textColor}`}>${total.toFixed(2)}</p>
       </div>
 
       {userExpenses.length === 0 ? (
@@ -48,7 +53,7 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
           {userExpenses.map(expense => (
             <div
               key={expense.id}
-              className="card flex items-center justify-between p-4"
+              className={`card flex items-center justify-between p-4 border-l-4 ${borderColor}`}
             >
               <div>
                 <p className="font-semibold">{expense.description}</p>
@@ -57,13 +62,13 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <p className="text-2xl font-bold text-charcoal">${expense.amount.toFixed(2)}</p>
+                <p className={`text-2xl font-bold ${textColor}`}>${expense.amount.toFixed(2)}</p>
                 <button
                   onClick={() => handleDelete(expense.id)}
                   disabled={deleting === expense.id}
                   className="px-3 py-1 bg-red-100 text-red-600 rounded hover:bg-red-200 transition disabled:opacity-50"
                 >
-                  {deleting === expense.id ? '...' : '✕'}
+                  {deleting === expense.id ? '...' : 'X'}
                 </button>
               </div>
             </div>

@@ -1,7 +1,7 @@
 export interface Expense {
   id: string
   date: string
-  person: 'You' | 'Boyfriend'
+  person: 'Fairca' | 'Yelysei'
   description: string
   amount: number
   category: string
@@ -11,7 +11,7 @@ export interface Task {
   id: string
   date: string
   description: string
-  assignedTo: 'You' | 'Boyfriend' | 'Both'
+  assignedTo: 'Fairca' | 'Yelysei' | 'Both'
   completed: boolean
   completedDate?: string
 }

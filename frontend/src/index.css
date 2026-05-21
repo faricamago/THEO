@@ -11,33 +11,76 @@
 }
 
 html, body {
-  background-color: #FFFFFF;
-  color: #2C2C2C;
+  background: linear-gradient(135deg, #FAFBF8 0%, #F5F1E8 100%);
+  color: #1A1A1A;
   font-family: 'Inter', sans-serif;
+  min-height: 100vh;
 }
 
 @layer components {
   .card {
-    @apply bg-white rounded-lg shadow-md p-6 border border-soft-grey transition-shadow hover:shadow-lg;
+    @apply bg-white rounded-lg shadow-lg p-6 border border-soft-grey transition-all hover:shadow-xl;
   }
 
   .btn-primary {
-    @apply px-6 py-2 bg-charcoal text-white rounded-lg font-medium hover:bg-dark-grey transition-colors;
+    @apply px-6 py-2 bg-royal-black text-white rounded-lg font-medium hover:bg-dark-pink transition-all duration-300 shadow-md;
   }
 
   .btn-secondary {
-    @apply px-6 py-2 bg-soft-grey text-charcoal rounded-lg font-medium hover:bg-gray-300 transition-colors;
+    @apply px-6 py-2 bg-soft-grey text-royal-black rounded-lg font-medium hover:bg-gold-accent hover:text-white transition-all duration-300;
   }
 
   .input-field {
-    @apply w-full px-4 py-2 border border-soft-grey rounded-lg focus:outline-none focus:ring-2 focus:ring-charcoal;
+    @apply w-full px-4 py-2 border-2 border-soft-grey rounded-lg focus:outline-none focus:ring-2 focus:ring-royal-pink focus:border-royal-pink transition-all;
   }
 
   .tab-active {
-    @apply border-b-2 border-charcoal text-charcoal font-semibold;
+    @apply border-b-2 border-royal-pink text-royal-pink font-semibold;
   }
 
   .tab-inactive {
-    @apply border-b-2 border-transparent text-dark-grey hover:text-charcoal;
+    @apply border-b-2 border-transparent text-dark-grey hover:text-royal-pink transition-colors;
+  }
+
+  .user-fairca {
+    @apply bg-gradient-to-br from-pastel-pink via-white to-pastel-pink;
+  }
+
+  .user-yelysei {
+    @apply bg-gradient-to-br from-royal-black via-dark-grey to-royal-black;
+  }
+
+  .tab-fairca {
+    @apply hover:bg-pastel-pink/20 cursor-pointer transition-all duration-300;
+  }
+
+  .tab-yelysei {
+    @apply hover:bg-royal-black/10 cursor-pointer transition-all duration-300;
+  }
+
+  .luxury-divider {
+    @apply border-t-2 border-gold-accent/30;
   }
 }
+
+/* Luxury styling */
+.navbar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* Gradient buttons for emphasis */
+.btn-luxury {
+  background: linear-gradient(135deg, #D4709F 0%, #8B4A6F 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-luxury:hover {
+  background: linear-gradient(135deg, #8B4A6F 0%, #D4709F 100%);
+  transform: translateY(-2px);
+}
+

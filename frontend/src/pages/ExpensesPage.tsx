@@ -8,7 +8,7 @@ import { Expense, Settlement } from '../types'
 export default function ExpensesPage() {
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [settlement, setSettlement] = useState<Settlement | null>(null)
-  const [activeTab, setActiveTab] = useState<'you' | 'bf' | 'summary'>('summary')
+  const [activeTab, setActiveTab] = useState<'fairca' | 'yelysei' | 'summary'>('summary')
   const [month, setMonth] = useState(new Date().getMonth() + 1)
   const [year, setYear] = useState(new Date().getFullYear())
   const [loading, setLoading] = useState(true)
@@ -42,7 +42,6 @@ export default function ExpensesPage() {
 
   return (
     <div>
-      {/* Month/Year Selector */}
       <div className="card mb-8">
         <h2 className="text-2xl font-bold mb-4">Expenses</h2>
         <div className="flex gap-4">
@@ -78,8 +77,7 @@ export default function ExpensesPage() {
         <div className="text-center py-12">Loading...</div>
       ) : (
         <>
-          {/* Tabs */}
-          <div className="flex gap-6 mb-6 border-b border-soft-grey">
+          <div className="flex gap-6 mb-6 border-b-2 border-soft-grey">
             <button
               onClick={() => setActiveTab('summary')}
               className={`pb-3 font-semibold ${
@@ -89,32 +87,35 @@ export default function ExpensesPage() {
               Summary
             </button>
             <button
-              onClick={() => setActiveTab('you')}
-              className={`pb-3 font-semibold ${
-                activeTab === 'you' ? 'tab-active' : 'tab-inactive'
+              onClick={() => setActiveTab('fairca')}
+              className={`pb-3 font-semibold transition ${
+                activeTab === 'fairca'
+                  ? 'text-royal-pink border-b-2 border-royal-pink'
+                  : 'text-dark-grey hover:text-royal-pink'
               }`}
             >
-              Your Expenses
+              Fairca Expenses
             </button>
             <button
-              onClick={() => setActiveTab('bf')}
-              className={`pb-3 font-semibold ${
-                activeTab === 'bf' ? 'tab-active' : 'tab-inactive'
+              onClick={() => setActiveTab('yelysei')}
+              className={`pb-3 font-semibold transition ${
+                activeTab === 'yelysei'
+                  ? 'text-gold-accent border-b-2 border-gold-accent'
+                  : 'text-dark-grey hover:text-gold-accent'
               }`}
             >
-              Boyfriend's Expenses
+              Yelysei Expenses
             </button>
           </div>
 
-          {/* Tab Content */}
           {activeTab === 'summary' && (
             <Dashboard expenses={expenses} settlement={settlement} month={month} year={year} />
           )}
-          {activeTab === 'you' && (
-            <UserTab expenses={expenses} person="You" onDelete={fetchExpenses} />
+          {activeTab === 'fairca' && (
+            <UserTab expenses={expenses} person="Fairca" onDelete={fetchExpenses} />
           )}
-          {activeTab === 'bf' && (
-            <UserTab expenses={expenses} person="Boyfriend" onDelete={fetchExpenses} />
+          {activeTab === 'yelysei' && (
+            <UserTab expenses={expenses} person="Yelysei" onDelete={fetchExpenses} />
           )}
         </>
       )}

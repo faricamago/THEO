@@ -22,39 +22,38 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navbar */}
-      <nav className="bg-charcoal text-white shadow-md">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+    <div className="min-h-screen">
+      <nav className="navbar bg-gradient-to-r from-royal-black to-dark-grey text-white">
+        <div className="max-w-6xl mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold">🐾 Theo</h1>
-            <div className="flex gap-6">
+            <h1 className="text-4xl font-bold tracking-wide">Theo</h1>
+            <div className="flex gap-8">
               <button
                 onClick={() => setCurrentPage('expenses')}
-                className={`py-2 px-4 transition ${
+                className={`py-2 px-4 transition font-semibold ${
                   currentPage === 'expenses'
-                    ? 'border-b-2 border-cream'
-                    : 'hover:text-cream'
+                    ? 'border-b-3 border-gold-accent text-gold-accent'
+                    : 'hover:text-gold-accent'
                 }`}
               >
                 Expenses
               </button>
               <button
                 onClick={() => setCurrentPage('tasks')}
-                className={`py-2 px-4 transition ${
+                className={`py-2 px-4 transition font-semibold ${
                   currentPage === 'tasks'
-                    ? 'border-b-2 border-cream'
-                    : 'hover:text-cream'
+                    ? 'border-b-3 border-gold-accent text-gold-accent'
+                    : 'hover:text-gold-accent'
                 }`}
               >
                 Tasks
               </button>
               <button
                 onClick={() => setCurrentPage('reports')}
-                className={`py-2 px-4 transition ${
+                className={`py-2 px-4 transition font-semibold ${
                   currentPage === 'reports'
-                    ? 'border-b-2 border-cream'
-                    : 'hover:text-cream'
+                    ? 'border-b-3 border-gold-accent text-gold-accent'
+                    : 'hover:text-gold-accent'
                 }`}
               >
                 Reports
@@ -62,12 +61,11 @@ export default function App() {
             </div>
           </div>
           {!isOnline && (
-            <p className="text-red-300 text-sm mt-2">⚠️ Backend not available</p>
+            <p className="text-red-200 text-sm mt-3">Backend not available - check if server is running</p>
           )}
         </div>
       </nav>
 
-      {/* Page Content */}
       <main className="max-w-6xl mx-auto px-6 py-8">
         {currentPage === 'expenses' && <ExpensesPage />}
         {currentPage === 'tasks' && <TasksPage />}

@@ -6,7 +6,7 @@ interface ExpenseFormProps {
 }
 
 export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
-  const [person, setPerson] = useState<'You' | 'Boyfriend'>('You')
+  const [person, setPerson] = useState<'Fairca' | 'Yelysei'>('Fairca')
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('Food')
@@ -30,7 +30,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
         amount: parseFloat(amount),
         category,
       })
-      setPerson('You')
+      setPerson('Fairca')
       setDescription('')
       setAmount('')
       setCategory('Food')
@@ -53,11 +53,11 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
           <label className="block text-sm font-medium mb-2">Who?</label>
           <select
             value={person}
-            onChange={(e) => setPerson(e.target.value as 'You' | 'Boyfriend')}
+            onChange={(e) => setPerson(e.target.value as 'Fairca' | 'Yelysei')}
             className="input-field"
           >
-            <option>You</option>
-            <option>Boyfriend</option>
+            <option>Fairca</option>
+            <option>Yelysei</option>
           </select>
         </div>
 
@@ -83,7 +83,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="e.g., Dog food bag"
+          placeholder="e.g., Cat food, grooming"
           className="input-field"
         />
       </div>
