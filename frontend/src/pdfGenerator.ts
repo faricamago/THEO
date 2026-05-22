@@ -14,7 +14,7 @@ export const generatePDFReport = (expenses: Expense[], month: number, year: numb
   
   // Title
   doc.setFontSize(20)
-  doc.setTextColor(...darkColor)
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2])
   doc.text(title, 15, 20)
   
   // Separator line
@@ -34,13 +34,12 @@ export const generatePDFReport = (expenses: Expense[], month: number, year: numb
   
   // Farica's Expenses
   doc.setFontSize(14)
-  doc.setTextColor(...pinkColor)
+  doc.setTextColor(pinkColor[0], pinkColor[1], pinkColor[2])
   doc.text(`Farica's Expenses - Total: $${faricaTotal.toFixed(2)}`, 15, yPosition)
   yPosition += 8
   
   doc.setFontSize(10)
-  doc.setTextColor(...darkColor)
-  
+doc.setTextColor(darkColor[0], darkColor[1], darkColor[2])  
   let faricaY = yPosition
   faricaExpenses.forEach((expense, index) => {
     if (faricaY > 250) {
@@ -56,12 +55,12 @@ export const generatePDFReport = (expenses: Expense[], month: number, year: numb
   
   // Yelysei's Expenses
   doc.setFontSize(14)
-  doc.setTextColor(...darkColor)
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2])
   doc.text(`Yelysei's Expenses - Total: $${yelyseiTotal.toFixed(2)}`, 15, yPosition)
   yPosition += 8
   
   doc.setFontSize(10)
-  doc.setTextColor(...darkColor)
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2])
   
   let yelyseiY = yPosition
   yelyseiExpenses.forEach((expense, index) => {
@@ -86,7 +85,7 @@ export const generatePDFReport = (expenses: Expense[], month: number, year: numb
   doc.line(15, yPosition - 5, 195, yPosition - 5)
   
   doc.setFontSize(14)
-  doc.setTextColor(...darkColor)
+  doc.setTextColor(darkColor[0], darkColor[1], darkColor[2])
   doc.text('Settlement', 15, yPosition + 5)
   
   yPosition += 12
@@ -96,7 +95,7 @@ export const generatePDFReport = (expenses: Expense[], month: number, year: numb
     doc.setTextColor(34, 197, 94) // green
     doc.text('All settled!', 15, yPosition)
   } else {
-    doc.setTextColor(...darkColor)
+    doc.setTextColor(darkColor[0], darkColor[1], darkColor[2])
     const whoOwes = faricaTotal > yelyseiTotal ? 'Yelysei' : 'Farica'
     doc.text(`${whoOwes} owes $${settlement.toFixed(2)}`, 15, yPosition)
   }
