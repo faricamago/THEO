@@ -31,9 +31,9 @@ export default function Dashboard({ expenses, settlement, month, year }: Dashboa
           <p className="text-4xl font-bold text-royal-pink">${faricaTotal.toFixed(2)}</p>
         </div>
 
-        <div className="p-6 bg-gradient-to-br from-royal-black to-dark-grey rounded-lg border-2 border-gold-accent">
-          <p className="text-sm font-semibold text-gold-accent mb-2">Yelysei Total</p>
-          <p className="text-4xl font-bold text-gold-accent">${yelyseiTotal.toFixed(2)}</p>
+        <div className="p-6 bg-gradient-to-br from-soft-grey to-white rounded-lg border-2 border-charcoal">
+          <p className="text-sm font-semibold text-charcoal mb-2">Yelysei Total</p>
+          <p className="text-4xl font-bold text-charcoal">${yelyseiTotal.toFixed(2)}</p>
         </div>
       </div>
 
