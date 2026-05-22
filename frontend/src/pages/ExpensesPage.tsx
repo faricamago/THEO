@@ -71,7 +71,7 @@ export default function ExpensesPage() {
         </div>
       </div>
 
-      <ExpenseForm onAdd={fetchExpenses} />
+      <ExpenseForm onAdd={fetchExpenses} selectedMonth={month} selectedYear={year} />
 
       {loading ? (
         <div className="text-center py-12">Loading...</div>
@@ -100,8 +100,8 @@ export default function ExpensesPage() {
               onClick={() => setActiveTab('yelysei')}
               className={`pb-3 font-semibold transition ${
                 activeTab === 'yelysei'
-                  ? 'text-gold-accent border-b-2 border-gold-accent'
-                  : 'text-dark-grey hover:text-gold-accent'
+                  ? 'text-charcoal border-b-2 border-charcoal'
+                  : 'text-dark-grey hover:text-charcoal'
               }`}
             >
               Yelysei Expenses

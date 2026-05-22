@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import ExpensesPage from './pages/ExpensesPage'
-import TasksPage from './pages/TasksPage'
 import ReportsPage from './pages/ReportsPage'
 
-type Page = 'expenses' | 'tasks' | 'reports'
+type Page = 'expenses' | 'reports'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('expenses')
@@ -39,16 +38,6 @@ export default function App() {
                 Expenses
               </button>
               <button
-                onClick={() => setCurrentPage('tasks')}
-                className={`py-2 px-4 transition font-semibold ${
-                  currentPage === 'tasks'
-                    ? 'border-b-3 border-gold-accent text-gold-accent'
-                    : 'hover:text-gold-accent'
-                }`}
-              >
-                Tasks
-              </button>
-              <button
                 onClick={() => setCurrentPage('reports')}
                 className={`py-2 px-4 transition font-semibold ${
                   currentPage === 'reports'
@@ -68,7 +57,6 @@ export default function App() {
 
       <main className="max-w-6xl mx-auto px-6 py-8">
         {currentPage === 'expenses' && <ExpensesPage />}
-        {currentPage === 'tasks' && <TasksPage />}
         {currentPage === 'reports' && <ReportsPage />}
       </main>
     </div>

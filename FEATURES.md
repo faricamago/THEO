@@ -2,7 +2,7 @@
 
 ## 🐾 Overview
 
-Theo is a beautiful, shared expense and task management app designed for couples managing pet care together. Track who spent what, calculate fair settlements, and manage tasks collaboratively.
+Theo is a beautiful, shared expense and settlement management app designed for couples managing pet care together. Track who spent what and calculate fair settlements.
 
 ---
 
@@ -79,48 +79,6 @@ The settlement appears in the Summary tab with:
 
 ---
 
-## 📋 Tasks Tab
-
-### Adding a Task
-
-1. Click the **"Tasks"** tab
-2. Fill in the form:
-   - **Task** - What needs to be done (e.g., "Feed Theo at 6pm")
-   - **Assign to** - Who should do it (Farica, Yelysei, or Both)
-3. Click **"Add Task"**
-
-**Examples of tasks:**
-- Feed Theo at 6pm
-- Clean litter box
-- Dog walk in morning
-- Monthly flea treatment
-- Vet appointment scheduled
-
-### Managing Tasks
-
-**To-Do Section:**
-- All incomplete tasks appear here
-- Shows who the task is assigned to
-- Checkbox to mark as complete
-
-**Completed Section:**
-- Shows finished tasks with strikethrough text
-- Appears below the To-Do section
-- Can be unchecked to mark incomplete again
-
-**Deleting a Task:**
-- Click the **✕** button on any task
-- Task is removed from the list
-
-### Marking Tasks Complete
-
-1. Find the task in the "To Do" section
-2. Click the **checkbox** next to the task
-3. Task moves to "Completed" section
-4. Shows completion date and who completed it
-
----
-
 ## 📊 Reports Tab
 
 ### Generating a Monthly Report
@@ -169,7 +127,6 @@ The generated PDF includes:
 
 - **Theo 🐾** - Logo (click to stay on current page)
 - **Expenses** - Add and view expenses
-- **Tasks** - Manage pet care tasks
 - **Reports** - Generate and download PDFs
 
 ### Color Scheme
@@ -195,12 +152,6 @@ The generated PDF includes:
 2. **Settle up monthly** using the settlement amount
 3. **Keep categories consistent** (Food, Vet, etc.)
 
-### For Better Task Management
-
-1. **Be specific** in task descriptions (include time if relevant)
-2. **Use "Both"** for shared responsibilities
-3. **Review completed tasks** to see who does what
-
 ### Data Organization
 
 1. **One month at a time** - Focus on current month by default
@@ -212,7 +163,7 @@ The generated PDF includes:
 - Both users can access the same app instance
 - No need for separate accounts (currently)
 - Data persists between sessions
-- Any device can add expenses/tasks
+- Any device can add expenses
 
 ---
 
@@ -220,7 +171,7 @@ The generated PDF includes:
 
 ### Data Storage
 
-- **Expenses and tasks** are stored in CSV files
+- **Expenses** are stored in CSV files
 - **Data persists** between sessions
 - **No automatic backup** - Save PDFs for records
 - **Shared access** - Anyone with app access can view/edit all data
@@ -236,8 +187,8 @@ The generated PDF includes:
 
 - User login/authentication
 - Multi-pet support
-- Recurring tasks and expenses
-- Email reminders for tasks
+- Recurring expenses
+- Email reminders
 - Spending charts and statistics
 - Mobile app native version
 
@@ -247,7 +198,7 @@ The generated PDF includes:
 
 - [ ] Understand expense tracking workflow
 - [ ] Learn settlement calculation logic
-- [ ] Practice adding expenses and tasks
+- [ ] Practice adding expenses
 - [ ] Generate your first monthly report
 - [ ] Set a regular settlement day (e.g., end of month)
 - [ ] Share app URL with your partner
@@ -265,4 +216,4 @@ For questions or issues:
 
 ---
 
-Enjoy managing Theo's expenses and tasks together! 🐾💰
+Enjoy managing Theo's expenses together! 🐾💰

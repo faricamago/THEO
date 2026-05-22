@@ -23,9 +23,9 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
   const total = userExpenses.reduce((sum, e) => sum + e.amount, 0)
 
   const isFarica = person === 'Farica'
-  const bgColor = isFarica ? 'bg-pastel-pink' : 'bg-royal-black'
-  const textColor = isFarica ? 'text-royal-pink' : 'text-gold-accent'
-  const borderColor = isFarica ? 'border-royal-pink' : 'border-dark-grey'
+  const bgColor = isFarica ? 'bg-pastel-pink' : 'bg-soft-grey'
+  const textColor = isFarica ? 'text-royal-pink' : 'text-charcoal'
+  const borderColor = isFarica ? 'border-royal-pink' : 'border-charcoal'
 
   const handleDelete = async (id: string) => {
     setDeleting(id)

@@ -3,9 +3,11 @@ import axios from 'axios'
 
 interface ExpenseFormProps {
   onAdd: () => void
+  selectedMonth: number
+  selectedYear: number
 }
 
-export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
+export default function ExpenseForm({ onAdd, selectedMonth, selectedYear }: ExpenseFormProps) {
   const [person, setPerson] = useState<'Farica' | 'Yelysei'>('Farica')
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
@@ -13,9 +15,21 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
+  const isCurrentMonth = () => {
+    const now = new Date()
+    const currentMonth = now.getMonth() + 1
+    const currentYear = now.getFullYear()
+    return selectedMonth === currentMonth && selectedYear === currentYear
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+
+    if (!isCurrentMonth()) {
+      setError('You can only add expenses for the current month')
+      return
+    }
 
     if (!description || !amount) {
       setError('Please fill all fields')
@@ -48,6 +62,12 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
 
       {error && <div className="text-red-600 mb-4">{error}</div>}
 
+      {!isCurrentMonth() && (
+        <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded mb-4">
+          You are viewing a past or future month. You can only add expenses for the current month.
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
           <label className="block text-sm font-medium mb-2">Who?</label>
@@ -55,6 +75,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
             value={person}
             onChange={(e) => setPerson(e.target.value as 'Farica' | 'Yelysei')}
             className="input-field"
+            disabled={!isCurrentMonth()}
           >
             <option>Farica</option>
             <option>Yelysei</option>
@@ -67,6 +88,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className="input-field"
+            disabled={!isCurrentMonth()}
           >
             <option>Food</option>
             <option>Vet</option>
@@ -85,6 +107,7 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="e.g., Cat food, grooming"
           className="input-field"
+          disabled={!isCurrentMonth()}
         />
       </div>
 
@@ -97,12 +120,13 @@ export default function ExpenseForm({ onAdd }: ExpenseFormProps) {
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0.00"
           className="input-field"
+          disabled={!isCurrentMonth()}
         />
       </div>
 
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || !isCurrentMonth()}
         className="btn-primary w-full disabled:opacity-50"
       >
         {loading ? 'Adding...' : 'Add Expense'}

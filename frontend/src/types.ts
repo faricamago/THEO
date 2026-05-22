@@ -7,15 +7,6 @@ export interface Expense {
   category: string
 }
 
-export interface Task {
-  id: string
-  date: string
-  description: string
-  assignedTo: 'Farica' | 'Yelysei' | 'Both'
-  completed: boolean
-  completedDate?: string
-}
-
 export interface Settlement {
   youTotal: number
   boyfriendTotal: number

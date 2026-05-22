@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import expensesRouter from './routes/expenses.js';
-import tasksRouter from './routes/tasks.js';
 import reportsRouter from './routes/reports.js';
 
 const app = express();
@@ -13,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/expenses', expensesRouter);
-app.use('/api/tasks', tasksRouter);
 app.use('/api/reports', reportsRouter);
 
 app.get('/api/health', (req, res) => {
