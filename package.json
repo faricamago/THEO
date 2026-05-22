@@ -1,6 +1,7 @@
 {
   "name": "theo-pet-manager",
   "version": "1.0.0",
+  "build": "vite build",
   "description": "Shared pet expense and task manager",
   "private": true
 }
