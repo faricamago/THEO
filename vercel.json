@@ -1,6 +1,6 @@
 {
   "buildCommand": "cd frontend && npm run build",
-  "installCommand": "npm install --audit=false && npm install --workspace=frontend --audit=false && npm install --workspace=api --audit=false",
+  "installCommand": "npm ci",
   "outputDirectory": "frontend/dist",
   "env": {
     "NODE_ENV": "production"
