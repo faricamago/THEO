@@ -84,7 +84,7 @@ export default function ReportsPage() {
           disabled={loading}
           className="btn-primary w-full disabled:opacity-50"
         >
-          {loading ? 'Generating...' : '📥 Download PDF Report'}
+          {loading ? 'Generating...' : 'Download PDF Report'}
         </button>
       </div>
 
