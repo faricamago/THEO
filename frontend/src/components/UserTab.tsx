@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import { deleteExpense } from '../supabaseClient'
 
 interface Expense {
   id: string
@@ -30,7 +30,7 @@ export default function UserTab({ expenses, person, onDelete }: UserTabProps) {
   const handleDelete = async (id: string) => {
     setDeleting(id)
     try {
-      await axios.delete(`/api/expenses/${id}`)
+      await deleteExpense(id)
       onDelete()
     } catch (error) {
       console.error('Failed to delete:', error)

@@ -1,95 +1,114 @@
-# 🐾 Theo - Pet Expense & Task Manager
+# 🐾 Theo - Pet Expense Manager
 
-Beautiful shared pet expense and task management app for you and your boyfriend.
+Beautiful shared pet expense management app built with React and Supabase.
 
 ## Features
 
 - **Expense Tracking**: Add and track expenses by person
 - **Monthly Settlement**: Automatic calculation of who owes whom
 - **PDF Reports**: Generate monthly reports with expense summaries
-- **Task Management**: Shared to-do list for pet care tasks
 - **Beautiful UI**: Aesthetic design with neutral color palette
+- **Real-time Sync**: Data syncs instantly across devices via Supabase
 
 ## Tech Stack
 
 - **Frontend**: React 18 + TypeScript + Tailwind CSS + Vite
-- **Backend**: Node.js + Express
-- **Data**: CSV file storage (no database required)
-- **Deployment**: Vercel (frontend) + Node.js (backend)
+- **Database**: Supabase (PostgreSQL)
+- **PDF Generation**: jsPDF (client-side)
+- **Deployment**: Vercel (frontend only)
 
-## Local Development
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+
 - npm/yarn
+- Supabase account (free at https://supabase.com)
 
-### Setup
+### 1. Clone and Install
 
-1. **Install dependencies**
 ```bash
-npm install --workspaces
+git clone <repo>
+cd THEO/frontend
+npm install
 ```
 
-2. **Start the backend** (Terminal 1)
-```bash
-cd api
-npm run dev
-# Backend runs on http://localhost:3001
+### 2. Setup Supabase
+
+See [SUPABASE_SETUP.md](./SUPABASE_SETUP.md) for detailed instructions:
+
+1. Create Supabase project
+2. Create expenses table (SQL provided in guide)
+3. Get your API credentials
+4. Create `.env.local` in `frontend/` folder:
+
+```env
+VITE_SUPABASE_URL=your_project_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
 ```
 
-3. **Start the frontend** (Terminal 2)
+### 3. Run Locally
+
 ```bash
-cd frontend
 npm run dev
 # Frontend runs on http://localhost:5173
 ```
 
-4. **Access the app**
-Open http://localhost:5173 in your browser
+### 4. Deploy to Vercel
 
-## Usage
-
-### Expenses Tab
-- **Add Expense**: Fill in the form with who spent what on what
-- **View by Person**: See your expenses vs boyfriend's expenses
-- **Summary**: View monthly totals and settlement
-- **Month/Year Selector**: View expenses for any month
-
-### Tasks Tab
-- **Add Task**: Create a new task and assign to Farica, Yelysei, or Both
-- **Mark Complete**: Check off completed tasks
-- **Delete**: Remove tasks as needed
-
-### Reports Tab
-- **Generate PDF**: Select a month/year and download a formatted PDF report
-- **Report Contents**: Includes expense breakdown, totals, and settlement
-
-## Deployment
-
-### Frontend (Vercel)
-1. Push code to GitHub
-2. Connect to Vercel
-3. Set build command: `cd frontend && npm run build`
-4. Set output directory: `frontend/dist`
-
-### Backend
-For production deployment, you have options:
-- **Railway, Heroku, or Render**: Deploy the `/api` folder
-- **AWS Lambda/DigitalOcean**: Use serverless functions
-- **Self-hosted VPS**: Run as a Node.js service
-
-Backend environment variable:
-```
-PORT=3001
-```
+1. Push to GitHub
+2. Connect repo to Vercel
+3. Add environment variables in Vercel settings:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+4. Deploy! (build command: `npm run build`)
 
 ## Project Structure
 
 ```
 THEO/
-├── frontend/          # React Vite app
-├── api/              # Express backend
-└── vercel.json       # Deployment config
+├── frontend/              # React Vite app
+│   ├── src/
+│   │   ├── pages/        # Expenses, Reports pages
+│   │   ├── components/   # UI components
+│   │   ├── supabaseClient.ts  # Database functions
+│   │   └── pdfGenerator.ts    # PDF creation
+│   └── .env.local        # Your Supabase credentials
+├── SUPABASE_SETUP.md     # Database setup guide
+└── vercel.json           # Deployment config
+```
+
+## Usage
+
+### Expenses Tab
+- **Add Expense**: Only available for current month
+- **View by Person**: See Farica's vs Yelysei's expenses
+- **Summary**: View monthly totals and automatic settlement
+- **Month/Year Selector**: Browse past/future months
+
+### Reports Tab
+- **Generate PDF**: Select month/year and download report
+- **Report Contents**: Expense breakdown, totals, and settlement
+
+## Deployment
+
+### Vercel (Frontend)
+
+1. Connect your GitHub repo to Vercel
+2. Set build command: `npm run build`
+3. Set output directory: `dist`
+4. Add environment variables:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+5. Deploy!
+
+That's it! No backend needed - Supabase handles all data.
+
+## Scripts
+
+```bash
+npm run dev      # Start dev server
+npm run build    # Build for production
+npm run preview  # Preview production build
 ```
 
 ## Color Palette
@@ -98,76 +117,51 @@ THEO/
 - Charcoal: #2C2C2C
 - Soft Grey: #E8E6E1
 - Dark Grey: #4A4A4A
-
-## CSV Data Format
-
-**expenses.csv**
-```
-id,date,person,description,amount,category
-```
-
-**tasks.csv**
-```
-id,date,description,assignedTo,completed,completedDate
-```
-
-Data is persisted in `/api/data/` directory.
-
-## API Endpoints
-
-### Expenses
-- `GET /api/expenses` - Get all expenses
-- `GET /api/expenses/month/:month/:year` - Get expenses for a month
-- `GET /api/expenses/settlement/:month/:year` - Get settlement info
-- `POST /api/expenses` - Add expense
-- `DELETE /api/expenses/:id` - Delete expense
-
-### Tasks
-- `GET /api/tasks` - Get all tasks
-- `POST /api/tasks` - Add task
-- `PATCH /api/tasks/:id` - Update task
-- `DELETE /api/tasks/:id` - Delete task
-
-### Reports
-- `GET /api/reports/generate?month=M&year=Y` - Generate PDF
-
-## Scripts
-
-**Frontend**
-```bash
-npm run dev      # Start dev server
-npm run build    # Build for production
-npm run preview  # Preview build
-```
-
-**Backend**
-```bash
-npm run dev      # Start dev server with hot reload
-npm run build    # Build TypeScript
-npm start        # Run production build
-```
+- Royal Pink: #DB7093
+- Pastel Pink: #FFB6C1
 
 ## Troubleshooting
 
-**Backend not connecting**
-- Ensure backend is running on port 3001
-- Check CORS settings if using different domain
-- Verify `/api/health` returns `{status: 'ok'}`
+**"Missing Supabase environment variables"**
+- Create `.env.local` in `frontend/` folder with your credentials
+- Make sure variable names are exactly: `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`
 
-**CSV files not saving**
-- Ensure `/api/data` directory exists
-- Check file permissions
-- Restart backend
+**Data not loading**
+- Check that `expenses` table exists in Supabase
+- Verify environment variables are correct
+- Check browser console for detailed errors
 
-**PDF generation errors**
-- Verify month/year parameters are correct
-- Ensure pdfkit is installed: `npm install pdfkit`
+**PDF generation fails**
+- Ensure month/year are correct
+- Check browser console for errors
+
+## Supabase Free Tier
+
+The free tier includes:
+- ✅ 500MB database space
+- ✅ 2GB file storage
+- ✅ 50,000 monthly active users
+- ✅ Unlimited API calls
+
+Perfect for a personal project!
+
+## Security Notes
+
+- The public API key is safe to share - access is restricted by Supabase
+- `.env.local` is never committed (in `.gitignore`)
+- No sensitive data is stored in the database
 
 ## Future Enhancements
 
-- [ ] User authentication
+- [ ] User authentication (multiple couples)
 - [ ] Multi-pet support
 - [ ] Recurring expenses
+- [ ] Spending charts
 - [ ] Monthly budgets
-- [ ] Email reports
 - [ ] Mobile app
+
+## Support
+
+For Supabase issues: https://supabase.com/docs
+For Vercel issues: https://vercel.com/docs
+

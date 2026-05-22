@@ -6,19 +6,6 @@ type Page = 'expenses' | 'reports'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('expenses')
-  const [isOnline, setIsOnline] = useState(true)
-
-  useEffect(() => {
-    const checkHealth = async () => {
-      try {
-        const res = await fetch('/api/health')
-        setIsOnline(res.ok)
-      } catch {
-        setIsOnline(false)
-      }
-    }
-    checkHealth()
-  }, [])
 
   return (
     <div className="min-h-screen">
@@ -49,9 +36,6 @@ export default function App() {
               </button>
             </div>
           </div>
-          {!isOnline && (
-            <p className="text-red-200 text-sm mt-3">Backend not available - check if server is running</p>
-          )}
         </div>
       </nav>
 

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import ExpenseForm from '../components/ExpenseForm'
 import UserTab from '../components/UserTab'
 import Dashboard from '../components/Dashboard'
 import { Expense, Settlement } from '../types'
+import { fetchExpensesByMonth, calculateSettlement } from '../supabaseClient'
 
 export default function ExpensesPage() {
   const [expenses, setExpenses] = useState<Expense[]>([])
@@ -12,6 +12,7 @@ export default function ExpensesPage() {
   const [month, setMonth] = useState(new Date().getMonth() + 1)
   const [year, setYear] = useState(new Date().getFullYear())
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     fetchExpenses()
@@ -19,14 +20,16 @@ export default function ExpensesPage() {
 
   const fetchExpenses = async () => {
     setLoading(true)
+    setError('')
     try {
-      const res = await axios.get(`/api/expenses/month/${month}/${year}`)
-      setExpenses(res.data)
+      const data = await fetchExpensesByMonth(month, year)
+      setExpenses(data)
 
-      const settleRes = await axios.get(`/api/expenses/settlement/${month}/${year}`)
-      setSettlement(settleRes.data)
-    } catch (error) {
-      console.error('Failed to fetch expenses:', error)
+      const settlementData = await calculateSettlement(month, year)
+      setSettlement(settlementData)
+    } catch (err) {
+      console.error('Failed to fetch expenses:', err)
+      setError('Failed to load expenses. Please check your Supabase connection.')
     } finally {
       setLoading(false)
     }
@@ -44,6 +47,7 @@ export default function ExpensesPage() {
     <div>
       <div className="card mb-8">
         <h2 className="text-2xl font-bold mb-4">Expenses</h2>
+        {error && <div className="text-red-600 mb-4">{error}</div>}
         <div className="flex gap-4">
           <div>
             <label className="block text-sm font-medium mb-2">Month</label>

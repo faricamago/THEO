@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import { addExpense } from '../supabaseClient'
 
 interface ExpenseFormProps {
   onAdd: () => void
@@ -38,7 +38,9 @@ export default function ExpenseForm({ onAdd, selectedMonth, selectedYear }: Expe
 
     setLoading(true)
     try {
-      await axios.post('/api/expenses', {
+      const today = new Date().toISOString().split('T')[0]
+      await addExpense({
+        date: today,
         person,
         description,
         amount: parseFloat(amount),
@@ -49,8 +51,9 @@ export default function ExpenseForm({ onAdd, selectedMonth, selectedYear }: Expe
       setAmount('')
       setCategory('Food')
       onAdd()
-    } catch {
-      setError('Failed to add expense')
+    } catch (err) {
+      console.error('Failed to add expense:', err)
+      setError('Failed to add expense. Please check your Supabase connection.')
     } finally {
       setLoading(false)
     }

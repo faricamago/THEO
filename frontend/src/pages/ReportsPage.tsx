@@ -1,27 +1,23 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { fetchExpensesByMonth } from '../supabaseClient'
+import { generatePDFReport } from '../pdfGenerator'
+import type { Expense } from '../supabaseClient'
 
 export default function ReportsPage() {
   const [month, setMonth] = useState(new Date().getMonth() + 1)
   const [year, setYear] = useState(new Date().getFullYear())
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleDownloadPDF = async () => {
     setLoading(true)
+    setError('')
     try {
-      const response = await axios.get(`/api/reports/generate?month=${month}&year=${year}`, {
-        responseType: 'blob',
-      })
-      const url = window.URL.createObjectURL(new Blob([response.data]))
-      const link = document.createElement('a')
-      link.href = url
-      link.setAttribute('download', `theo-report-${month}-${year}.pdf`)
-      document.body.appendChild(link)
-      link.click()
-      link.parentNode?.removeChild(link)
-    } catch (error) {
-      console.error('Failed to download PDF:', error)
-      alert('Failed to generate report')
+      const expenses = await fetchExpensesByMonth(month, year)
+      generatePDFReport(expenses, month, year)
+    } catch (err) {
+      console.error('Failed to generate PDF:', err)
+      setError('Failed to generate report. Please check your Supabase connection.')
     } finally {
       setLoading(false)
     }
@@ -46,6 +42,8 @@ export default function ReportsPage() {
 
       <div className="card mb-8">
         <h2 className="text-2xl font-bold mb-6">Generate PDF Report</h2>
+
+        {error && <div className="text-red-600 mb-4">{error}</div>}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div>
